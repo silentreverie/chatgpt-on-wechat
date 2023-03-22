@@ -21,13 +21,13 @@ def load_config():
 
     name = config["name"]
     #默认打开私人聊天
-    config["single_chat_prefix"] = [name, name+"，"]
+    config["single_chat_prefix"] = [name+"，", name]
     config["single_chat_reply_prefix"] = "[助理" + name + "]: "
     #config["single_chat_reply_prefix"] = "[助理]"
 
     #默认关闭群组功能，除非配置设置了
     if "group_name_white_list" in config and len(config["group_name_white_list"]) > 0:
-        config["group_chat_prefix"] = [name, name+"，"]
+        config["group_chat_prefix"] = [name+"，", name]
         config["group_chat_reply_prefix"] = "[助理" + name + "]: "
 
     logger.info("[INIT] load config: {}".format(config))
