@@ -77,7 +77,7 @@ class WechatChannel(Channel):
         other_user_id = msg['User']['UserName']     # 对手方id
         create_time = msg['CreateTime']             # 消息时间
         match_prefix = self.check_prefix(content, conf().get('single_chat_prefix'))
-        logger.info("content={} match_prefix={}".format(content, match_prefix))
+        #logger.info("content={} match_prefix={}".format(content, match_prefix))
         if conf().get('single_chat_auto_reply') == True and match_prefix is None:
             match_prefix = ''
         if conf().get('hot_reload') == True and int(create_time) < int(time.time()) - 60:    #跳过1分钟前的历史消息
