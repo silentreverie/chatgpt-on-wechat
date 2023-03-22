@@ -17,6 +17,7 @@
    "rate_limit_chatgpt": 10,
    "rate_limit_dalle": 5,
    "hot_reload": true,
-   "character_desc": "你是基于世界上顶尖AI技术CHATGPT训练出来的语言对话机器人。"
+   "character_desc": "你是基于世界上顶尖AI技术CHATGPT训练出来的语言对话机器人。",
+   "temperature": 0.2
  }
 
