@@ -101,7 +101,7 @@ class WechatChannel(Channel):
                 thread_pool.submit(self._do_send_text, content, from_user_id)
         elif to_user_id == other_user_id and match_prefix is not None:
             # 自己给好友发送消息
-            str_list = content.split(match_prefix, 1)
+            str_list = content if (match_prefix== "") else content.split(match_prefix, 1)
             if len(str_list) == 2:
                 content = str_list[1].strip()
             img_match_prefix = self.check_prefix(content, conf().get('image_create_prefix'))
