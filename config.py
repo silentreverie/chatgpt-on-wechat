@@ -21,8 +21,8 @@ def load_config():
 
     name = config["name"]
     config["single_chat_prefix"] = [name, name+"，"]
-    #config["single_chat_reply_prefix"] = "[助理" + name + "]: "
-    config["single_chat_reply_prefix"] = ""
+    config["single_chat_reply_prefix"] = "[助理" + name + "]: "
+    #config["single_chat_reply_prefix"] = "[助理]"
     config["group_chat_prefix"] = [name, name+"，"]
     #config["group_chat_reply_prefix"] = "[助理" + name + "]: "
     config["single_chat_reply_prefix"] = ""
