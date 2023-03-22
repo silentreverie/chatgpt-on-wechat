@@ -1,13 +1,13 @@
 {
-  "name" : "小宅",
-   "open_ai_api_key": "",
+  "name" : "小宅",  #重要配置,个人名字
+   "open_ai_api_key": "", #重要配置，私密配置
+   "group_name_white_list": ["ALL_GROUP"],  #重要配置，防止群生效
    "model": "gpt-3.5-turbo",
    "proxy": "",
    "single_chat_prefix": [],
    "single_chat_reply_prefix": "",
    "group_chat_prefix": [],
    "group_chat_reply_prefix": "",
-   "group_name_white_list": ["ALL_GROUP"],
    "group_at_off": true,
    "image_create_prefix": ["画", "帮我画", "，画"],
    "speech_recognition": false,
