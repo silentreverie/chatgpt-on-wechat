@@ -1,23 +1,30 @@
 {
   "name" : "小宅",  #重要配置,个人名字
-   "open_ai_api_key": "", #重要配置，私密配置
-   "group_name_white_list": ["ALL_GROUP"],  #重要配置，防止群生效
-   "model": "gpt-3.5-turbo",
-   "proxy": "",
-   "single_chat_prefix": [],
-   "single_chat_reply_prefix": "",
-   "group_chat_prefix": [],
-   "group_chat_reply_prefix": "",
-   "group_at_off": true,
-   "image_create_prefix": ["画", "帮我画", "，画"],
-   "speech_recognition": false,
-   "voice_reply_voice": false,
-   "conversation_max_tokens": 1000,
-   "expires_in_seconds": 3600,
-   "rate_limit_chatgpt": 10,
-   "rate_limit_dalle": 5,
-   "hot_reload": true,
-   "character_desc": "你是基于世界上顶尖AI技术CHATGPT训练出来的语言对话机器人。",
-   "temperature": 0.2
+  "open_ai_api_key": "", #重要配置，私密配置
+  "single_chat_auto_reply": false, #私人对话时是否开启自动回复
+  "group_name_white_list": ["ALL_GROUP"],  #重要配置，防止群生效
+  "group_at_off": true, #是否开启被@生效
+
+  "model": "gpt-3.5-turbo",
+  "proxy": "",
+
+  "single_chat_prefix": [],
+  "single_chat_reply_prefix": "",
+
+  "group_chat_prefix": [],
+  "group_chat_reply_prefix": "",
+
+  "image_create_prefix": ["画", "帮我画", "，画"],
+  "speech_recognition": false,
+  "voice_reply_voice": false,
+
+  "conversation_max_tokens": 1000,
+  "expires_in_seconds": 3600,
+
+  "rate_limit_chatgpt": 10,
+  "rate_limit_dalle": 5,
+  "hot_reload": true,
+  "temperature": 0.2
+  "character_desc": "你是基于世界上顶尖AI技术CHATGPT训练出来的语言对话机器人。",
  }
 
