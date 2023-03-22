@@ -1,6 +1,6 @@
  {
   "name" : "小宅",
-   "open_ai_api_key": "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",
+   "open_ai_api_key": "",
    "model": "gpt-3.5-turbo",
    "proxy": "",
    "single_chat_prefix": [],
