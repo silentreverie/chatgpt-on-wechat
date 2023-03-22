@@ -5,6 +5,7 @@ __pycache__/
 venv*
 *.pyc
 QR.png
+config.json
 nohup.out
 tmp
 .gitignore
