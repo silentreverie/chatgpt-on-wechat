@@ -1,16 +1,21 @@
  {
-   "open_ai_api_key": "YOUR API KEY",
+  "name" : "小宅",
+   "open_ai_api_key": "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",
    "model": "gpt-3.5-turbo",
    "proxy": "",
-   "single_chat_prefix": ["bot", "@bot"],
-   "single_chat_reply_prefix": "[bot] ",
-   "group_chat_prefix": ["@bot"],
-   "group_name_white_list": ["ChatGPT测试群", "ChatGPT测试群2"],
-   "image_create_prefix": ["画", "看", "找"],
+   "single_chat_prefix": [],
+   "single_chat_reply_prefix": "",
+   "group_chat_prefix": [],
+   "group_name_white_list": ["ALL_GROUP"],
+   "image_create_prefix": ["画", "帮我画", "，画"],
+   "group_at_off": true,
    "speech_recognition": false,
    "voice_reply_voice": false,
    "conversation_max_tokens": 1000,
    "expires_in_seconds": 3600,
-   "character_desc": "你是ChatGPT, 一个由OpenAI训练的大型语言模型, 你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。"
+   "rate_limit_chatgpt": 10,
+   "rate_limit_dalle": 5,
+   "hot_reload": true,
+   "character_desc": "你是基于世界上顶尖AI技术CHATGPT训练出来的语言对话机器人。"
  }
 

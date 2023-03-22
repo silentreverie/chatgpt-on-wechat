@@ -16,6 +16,18 @@ def load_config():
     config_str = read_file(config_path)
     # 将json字符串反序列化为dict类型
     config = json.loads(config_str)
+    if not "name" in config:
+        raise Exception('配置文件中不包含name')
+
+    name = config["name"]
+    config["single_chat_prefix"] = [name, name+"，"]
+    #config["single_chat_reply_prefix"] = "[助理" + name + "]: "
+    config["single_chat_reply_prefix"] = ""
+    config["group_chat_prefix"] = [name, name+"，"]
+    #config["group_chat_reply_prefix"] = "[助理" + name + "]: "
+    config["single_chat_reply_prefix"] = ""
+
+
     logger.info("[INIT] load config: {}".format(config))
 
 
@@ -31,3 +43,4 @@ def read_file(path):
 
 def conf():
     return config
+
