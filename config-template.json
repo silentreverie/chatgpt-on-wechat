@@ -14,7 +14,7 @@
   "group_chat_prefix": [],
   "group_chat_reply_prefix": "",
 
-  "image_create_prefix": ["画", "帮我画", "，画"],
+  "image_create_prefix": ["画", "帮我画", "看"],
   "speech_recognition": false,
   "voice_reply_voice": false,
 
