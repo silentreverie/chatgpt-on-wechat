@@ -142,9 +142,9 @@ class WechatChannel(Channel):
                 and match_prefix: #match_prefix有两种形态，一种是true/false表示是否被@;一种是字符串表示是否被匹配
             #去掉前缀，但注意被@的情况
             if match_prefix == True:
-                content = content if len(content.split(' ', 1)) <= 1 else len(content.split(' ', 1)[1])
+                content = content if len(content.split(' ', 1)) <= 1 else content.split(' ', 1)[1]
             else:
-                content = content.split(match_prefix, 1)[1].strip()
+                content = content.split(match_prefix, 1)[1]
             content = content.strip()
 
             img_match_prefix = self.check_prefix(content, conf().get('image_create_prefix'))
