@@ -139,6 +139,7 @@ class WechatChannel(Channel):
         logger.info("content={} match_prefix={}".format(content, match_prefix))
         if ('ALL_GROUP' in config.get('group_name_white_list') or group_name in config.get('group_name_white_list') or self.check_contain(group_name, config.get('group_name_keyword_white_list'))) and match_prefix:
             img_match_prefix = self.check_prefix(content, conf().get('image_create_prefix'))
+            logger.info("content={} match_prefix={}".format(content, img_match_prefix))
             if img_match_prefix:
                 content = content.split(img_match_prefix, 1)[1].strip()
                 thread_pool.submit(self._do_send_img, content, group_id)
