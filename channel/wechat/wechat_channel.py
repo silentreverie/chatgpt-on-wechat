@@ -139,7 +139,8 @@ class WechatChannel(Channel):
         if ('ALL_GROUP' in config.get('group_name_white_list') 
             or group_name in config.get('group_name_white_list') 
             or self.check_contain(group_name, config.get('group_name_keyword_white_list'))) and match_prefix:
-            content = content.split(match_prefix, 1)[1].strip() #先把前缀去掉
+            #去掉前缀，但注意被@的情况
+            content = content if (match_prefix == True) else content.split(match_prefix, 1)[1].strip()
 
             img_match_prefix = self.check_prefix(content, conf().get('image_create_prefix'))
             logger.info("content={} match_prefix={}".format(content, img_match_prefix))
