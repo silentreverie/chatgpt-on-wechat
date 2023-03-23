@@ -128,8 +128,6 @@ class WechatChannel(Channel):
         context_special_list = content.split('\u2005', 1)
         if len(context_special_list) == 2:
             content = context_special_list[1]
-        elif len(content_list) == 2:
-            content = content_list[1]
         if "」\n- - - - - - - - - - - - - - -" in content:
             logger.debug("[WX]reference query skipped")
             return ""
