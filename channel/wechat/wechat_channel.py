@@ -124,7 +124,7 @@ class WechatChannel(Channel):
             return ""
         origin_content = msg['Content']
         content = msg['Content']
-        content_list = content.split(' ', 1)
+        #content_list = content.split(' ', 1)
         context_special_list = content.split('\u2005', 1)
         if len(context_special_list) == 2:
             content = context_special_list[1]
@@ -137,7 +137,11 @@ class WechatChannel(Channel):
         match_prefix = (msg['IsAt'] and not config.get("group_at_off", False)) or self.check_prefix(origin_content, config.get('group_chat_prefix')) \
                        or self.check_contain(origin_content, config.get('group_chat_keyword'))
         logger.info("content={} match_prefix={}".format(content, match_prefix))
-        if ('ALL_GROUP' in config.get('group_name_white_list') or group_name in config.get('group_name_white_list') or self.check_contain(group_name, config.get('group_name_keyword_white_list'))) and match_prefix:
+        if ('ALL_GROUP' in config.get('group_name_white_list') 
+            or group_name in config.get('group_name_white_list') 
+            or self.check_contain(group_name, config.get('group_name_keyword_white_list'))) and match_prefix:
+            content = content.split(match_prefix, 1).strip() #先把前缀去掉
+
             img_match_prefix = self.check_prefix(content, conf().get('image_create_prefix'))
             logger.info("content={} match_prefix={}".format(content, img_match_prefix))
             if img_match_prefix:
