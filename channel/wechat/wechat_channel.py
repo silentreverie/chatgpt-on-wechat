@@ -141,11 +141,14 @@ class WechatChannel(Channel):
             or self.check_contain(group_name, config.get('group_name_keyword_white_list'))) \
                 and match_prefix: #match_prefix有两种形态，一种是true/false表示是否被@;一种是字符串表示是否被匹配
             #去掉前缀，但注意被@的情况
-            content = content.split(' ', 1)[1].strip() if (match_prefix == True) \
-                else content.split(match_prefix, 1)[1].strip()
+            if match_prefix == True:
+                content = content if len(content.split(' ', 1)) <= 1 else len(content.split(' ', 1)[1])
+            else:
+                content = content.split(match_prefix, 1)[1].strip()
+            content = content.strip()
 
             img_match_prefix = self.check_prefix(content, conf().get('image_create_prefix'))
-            logger.info("content={} match_prefix={}".format(content, img_match_prefix))
+            logger.info("content={} after_match_prefix={}".format(content, img_match_prefix))
             if img_match_prefix:
                 content = content.split(img_match_prefix, 1)[1].strip()
                 thread_pool.submit(self._do_send_img, content, group_id)
