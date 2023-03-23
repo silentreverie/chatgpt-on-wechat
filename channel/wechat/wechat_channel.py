@@ -138,7 +138,8 @@ class WechatChannel(Channel):
         logger.info("content={} match_prefix={}".format(content, match_prefix))
         if ('ALL_GROUP' in config.get('group_name_white_list') 
             or group_name in config.get('group_name_white_list') 
-            or self.check_contain(group_name, config.get('group_name_keyword_white_list'))) and match_prefix:
+            or self.check_contain(group_name, config.get('group_name_keyword_white_list'))) \
+                and match_prefix: #match_prefix有两种形态，一种是true/false表示是否被@;一种是字符串表示是否被匹配
             #去掉前缀，但注意被@的情况
             content = content.split(' ', 1)[1].strip() if (match_prefix == True) \
                 else content.split(match_prefix, 1)[1].strip()
