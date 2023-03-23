@@ -132,16 +132,17 @@ class WechatChannel(Channel):
             logger.debug("[WX]reference query skipped")
             return ""
         config = conf()
-        match_prefix = (msg['IsAt'] and not config.get("group_at_off", False)) or self.check_prefix(origin_content, config.get('group_chat_prefix')) \
-                       or self.check_contain(origin_content, config.get('group_chat_keyword'))
-        #logger.info("content={} match_prefix={}".format(content, match_prefix))
+        match_prefix = (msg['IsAt'] and config.get("group_at_off", True)) \
+            or self.check_prefix(origin_content, config.get('group_chat_prefix')) \
+            or self.check_contain(origin_content, config.get('group_chat_keyword'))
+        logger.info("content={} match_prefix={}".format(content, match_prefix))
         if ('ALL_GROUP' in config.get('group_name_white_list') 
             or group_name in config.get('group_name_white_list') 
             or self.check_contain(group_name, config.get('group_name_keyword_white_list'))) and match_prefix:
             content = content.split(match_prefix, 1)[1].strip() #先把前缀去掉
 
             img_match_prefix = self.check_prefix(content, conf().get('image_create_prefix'))
-            #logger.info("content={} match_prefix={}".format(content, img_match_prefix))
+            logger.info("content={} match_prefix={}".format(content, img_match_prefix))
             if img_match_prefix:
                 content = content.split(img_match_prefix, 1)[1].strip()
                 thread_pool.submit(self._do_send_img, content, group_id)
